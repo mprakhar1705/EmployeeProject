@@ -1,7 +1,6 @@
 # EmployeeProject
 Employee Details
-**Problem:**
-Write a project for a client to read the Employee data from a csv file. Then use the data to calculate the following:
+**Problem:** Write a project for a client to read the Employee data from a csv file. Then use the data to calculate the following:
 1. Calculate the total expenditure by company on it's employee salaries grouped by gender.
 2. Calculate the salary after hike for each employee using current salary and % hike. Also, add bonus amount according to the employee experience with the company. Bonuses are as follows:
    **Experience(Yrs)** :  0-3       3-5     5-10      10+
@@ -14,3 +13,4 @@ Write a project for a client to read the Employee data from a csv file. Then use
 **OutPut:** Output should be shown on console or saved in a file.
 
 Handle wrong, invalid and boundary conditions. Check if email is valid.
+

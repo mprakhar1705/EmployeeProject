@@ -1,8 +1,9 @@
-import EmployeePackage.Employee;
+import EmployeePackage.*;
+import org.apache.commons.io.FilenameUtils;
+import org.xml.sax.SAXException;
 
-import java.io.BufferedReader;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -15,35 +16,27 @@ public class Operations {
     private String s;
     private List<Employee> employeeList = new ArrayList<>();
 
-    public void loadEmployees() throws IOException {
+    public void loadEmployees() throws IOException, ParserConfigurationException, SAXException {
         ClassLoader classLoader = Operations.class.getClassLoader();
-        File file = new File(classLoader.getResource("Sample_input1.csv").getFile());
+        String fileName = "Sample_input1.txt";
+        File file = new File(classLoader.getResource(fileName).getFile());
+       FileParser p = null;
+        String fileExtension =FilenameUtils.getExtension(fileName);
+        System.out.println(fileExtension);
+        if(fileExtension.equals("csv")) {
+//            System.out.println("csv file");
+             p = new CSVParser();
+                  }
+        else if(fileExtension.equals("txt")){
+             p = new TxtParser();
+                  }
+        else if(fileExtension.equals("xml")){
+             p= new XMLParser();
+                   }
+        else System.out.println("no file");
 
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        br.readLine();
-        while ((s = br.readLine()) != null) {
-            String record[] = s.split(",");
-            int l = record[9].length();
-            Employee emp = new Employee.EmployeeBuilder()
-                    .empID(Integer.parseInt(record[0]))
-                    .firstName(record[1])
-                    .lastName(record[2])
-                    .gender(record[3].charAt(0))
-                    .email(record[4])
-                    .fatherName(record[5])
-                    .age(Integer.parseInt(record[6]))
-                    .yearOfJoining(Integer.parseInt(record[7]))
-                    .salary(Float.parseFloat(record[8]))
-                    .hikePercentage(Float.parseFloat(record[9].substring(0, l - 1)))
-                    .city(record[10])
-                    .build();
+        employeeList = p.load(file);
 
-
-            boolean isInputValid = inputValidation(emp);
-            if (isInputValid)
-                employeeList.add(emp);
-
-        }
     }
 
     public void loadCurrentYear() {
@@ -150,16 +143,14 @@ public class Operations {
 
     }
 
-    private boolean emailValidation(String email) {
 
-        return matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", email);
-    }
 
     private boolean inputValidation(Employee e) {
 
-        //  System.out.println(currentYear);
-        return e.getEmpID() > 0 && e.getFirstName() != null && e.getLastName() != null && (e.getGender() == 'M' || e.getGender() == 'F') &&
-                emailValidation(e.getEmail()) && e.getFatherName() != null && (e.getAge() > 18 && e.getAge() < 65) &&
+       boolean isEmailValid = matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",e.getEmail());
+
+       return e.getEmpID() > 0 && e.getFirstName() != null && e.getLastName() != null && (e.getGender() == 'M' || e.getGender() == 'F') &&
+                isEmailValid==true && e.getFatherName() != null && (e.getAge() > 18 && e.getAge() < 65) &&
                 (e.getYearOfJoining() > 1900 && e.getYearOfJoining() < currentYear) && e.getSalary() > 0.0 && e.getHikePercentage() >= 0.0
                 && e.getCity() != null;
     }

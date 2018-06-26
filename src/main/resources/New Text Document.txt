@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<employee>
+	<empId="677509">
+		<firstName>Lois</firstName>
+		<lastName>Walker</lastName>
+		<gender>F</gender>
+		<email>lois.walker@hotmail.com</email>
+		<fatherName>Donald Walker</fatherName>
+		<age>36</age>
+		<yearOfJoining>2003</yearOfJoining>
+		<salary>168251</salary>
+		<hikePercentage>21%</hikePercentage>
+		<city>Denver</city>
+
+	</empId>
+	<empId="940751">
+		<firstName>Brenda</firstName>
+		<lastName>Robinson</lastName>
+		<gender>F</gender>
+		<email>brenda.robinson@gmail.com</email>
+		<fatherName>Raymond Robinson</fatherName>
+		<age>47</age>
+		<yearOfJoining>2008</yearOfJoining>
+		<salary>51063</salary>
+		<hikePercentage>27%</hikePercentage>
+		<city>Stonewall</city>
+
+	</empId>
+
+               <empId="428945">
+		<firstName>Joe</firstName>
+		<lastName>Robinson</lastName>
+		<gender>M</gender>
+		<email>joe.robinson@gmail.com</email>
+		<fatherName>Scott Robinson</fatherName>
+		<age>54</age>
+		<yearOfJoining>2016</yearOfJoining>
+		<salary>50155</salary>
+		<hikePercentage>16%</hikePercentage>
+		<city>Denver</city>
+
+	</empId>
+
+</employee>

@@ -18,7 +18,7 @@ public class Operations {
 
     public void loadEmployees() throws IOException, ParserConfigurationException, SAXException {
         ClassLoader classLoader = Operations.class.getClassLoader();
-        String fileName = "Sample_input1.txt";
+        String fileName = "Sample_input1.xml";
         File file = new File(classLoader.getResource(fileName).getFile());
        FileParser p = null;
         String fileExtension =FilenameUtils.getExtension(fileName);

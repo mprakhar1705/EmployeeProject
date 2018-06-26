@@ -1,0 +1,6 @@
+Emp ID|First Name|Last Name|Gender|E Mail|Father's Name|Age in Yrs.|Year of Joining|Salary|Perc Hike|City
+677509|Lois|Walker|F|lois.walker@hotmail.com|Donald Walker|36|2003|168251|21%|Denver
+940761|Brenda|Robinson|F|brenda.robinson@gmail.com|Raymond Robinson|47|2008|51063|27%|Stonewall
+428945|Joe|Robinson|M|joe.robinson@gmail.com|Scott Robinson|54|2016|50155|16%|Michigantown
+408351|Diane|Evans|F|diane.evans@yahoo.com|Jason Evans|40|1999|180294|1%|Hydetown
+539712|Nancy|Baker|F|nancy.baker@bp.com|Scott Baker|22|2016|98189|0%|Denver
